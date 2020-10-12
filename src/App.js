@@ -4,9 +4,6 @@ import './placeholder.js';
 import markdownDefault from './placeholder.js';
 const marked = require("marked");
 
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +26,9 @@ getMarkdownText() {
 
   render() {
     return (
-      <div className="App">
+      <div id="app">
         <textarea id="editor" onChange={this.handleChange.bind(this)} value={this.state.value}>{markdownDefault}</textarea>
-        <div dangerouslySetInnerHTML={this.getMarkdownText()} />
+        <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()} />
       </div>
     );
   }

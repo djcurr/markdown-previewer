@@ -1,0 +1,26 @@
+#app {
+    background-color: beige;
+    margin: auto;
+    width: 50%;
+    border: 3px solid #000000;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#editor {
+    display: block;
+    margin: auto;
+    width: 90%;
+    height: 200px;
+    border: 5px solid black;
+    padding: 10px;
+}
+
+#preview {
+    background-color: aliceblue;
+    border: 1px solid black;
+    padding: 30px;
+    margin-top: 20px;
+}
+  
