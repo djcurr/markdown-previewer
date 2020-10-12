@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './placeholder.js';
+import markdownDefault from './placeholder.js';
+const marked = require("marked");
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      text: markdownDefault,
+      preview: ''
+     };
+  }
+
+handleChange(event) {
+  this.setState ({
+    text: event.target.value
+  })
+}
+
+getMarkdownText() {
+  var rawMarkup = marked(this.state.text, {sanitize: true});
+  return { __html: rawMarkup };
+}
+
+  render() {
+    return (
+      <div className="App">
+        <textarea id="editor" onChange={this.handleChange.bind(this)} value={this.state.value}>{markdownDefault}</textarea>
+        <div dangerouslySetInnerHTML={this.getMarkdownText()} />
+      </div>
+    );
+  }
 }
 
 export default App;
+
